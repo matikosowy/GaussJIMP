@@ -14,6 +14,7 @@ int eliminate(Matrix *mat, Matrix *b) {
     int n = mat->r;
 
     for (k = 0; k < n - 1; k++) {
+     // Wybór elementu głównego
         int max_index = k;
         for (i = k + 1; i < n; i++) {
             if (fabs(mat->data[i][k]) > fabs(mat->data[max_index][k])) {
