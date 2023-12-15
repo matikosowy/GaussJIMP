@@ -1,4 +1,5 @@
 #include "gauss.h"
+#includfe <math.h>
 
 /**
  * Zwraca 0 - eliminacja zakonczona sukcesem
