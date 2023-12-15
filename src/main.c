@@ -4,7 +4,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-
 int main(int argc, char ** argv) {
 	int res;
 	Matrix * A = readFromFile(argv[1]);
@@ -17,11 +16,31 @@ int main(int argc, char ** argv) {
 	printToScreen(b);
 
 	res = eliminate(A,b);
+
+	if(res == 1){
+		fprintf(stderr, "Błąd! Macierz jest osobliwa.\n");
+	}
+	if(res ==0){
+		fprintf(stderr, "Operacja eliminacji przeprowadzona pomyślnie.\n");
+			
+	}
+
 	x = createMatrix(b->r, 1);
 	if (x != NULL) {
 		res = backsubst(x,A,b);
 
-		printToScreen(x);
+		if(res==2){
+			fprintf(stderr, "Błąd! Nieprawidłowe wymiary macierzy\n");
+		}
+		if(res == 1){
+			fprintf(stderr, "Błąd! Dzielenie przez zero (element na diagonali)\n");
+		}
+		if(res == 0){
+			fprintf(stderr, "Operacja podstawienia wstecznego przeprowadzona pomyślnie.\n");
+			printToScreen(x);
+		}
+
+		
 	  freeMatrix(x);
 	} else {
 					fprintf(stderr,"Błąd! Nie mogłem utworzyć wektora wynikowego x.\n");
