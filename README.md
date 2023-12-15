@@ -1,3 +1,4 @@
 # GaussJIMP
 
-test
+Mateusz Gołębiewski
+Dominik Ostas
